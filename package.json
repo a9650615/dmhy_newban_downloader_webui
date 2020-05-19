@@ -5,9 +5,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "antd": "^4.2.4",
+    "axios": "^0.19.2",
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "sass": "1.26.3"
+    "sass": "1.26.3",
+    "unstated-next": "^1.1.0"
   }
 }
