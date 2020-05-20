@@ -7,9 +7,10 @@ export default function Home() {
   const task = TaskContext.useContainer()
   
   useEffect(() => {
-    setInterval(() => {
-      task.getdownloadList()
-    }, 5000)
+    // setInterval(() => {
+    //   task.getdownloadList()
+    // }, 5000)
+    task.getdownloadList()
   }, []);
 
   return (

@@ -1,12 +1,17 @@
 import 'antd/dist/antd.css'
 import '../styles.scss'
-import TaskContent from '../context/task'
+import SocketContext from '../context/socket'
+import TaskContext from '../context/task'
+import WebSocketContainer from '../container/WebSocketContainer'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <TaskContent.Provider>
-      <Component {...pageProps} />
-    </TaskContent.Provider>
+    <SocketContext.Provider>
+      <TaskContext.Provider>
+        <Component {...pageProps} />
+        <WebSocketContainer />
+      </TaskContext.Provider>
+    </SocketContext.Provider>
   )
 }
 

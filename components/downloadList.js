@@ -1,4 +1,4 @@
-import { Skeleton, Switch, Card, Avatar, Meta } from 'antd'
+import { Progress, Card, Space, List } from 'antd'
 import TaskContext from '../context/task'
 import styles from './downloadList.module.scss'
 
@@ -13,16 +13,30 @@ const showStatus = (status) => {
 }
 
 const cardItem = (item) => (
-  <Card className={styles.card}>
-    <Card.Meta
-      title={item.name}
-      description={showStatus(item.status)}
-    />
-  </Card>
+  <List.Item key={item.link}>
+    <Card className={styles.card}>
+      <Card.Meta
+        title={item.name}
+        description={
+          <Space>
+            <span>{showStatus(item.status)}</span>
+            <a target="_blank" href={`https://share.dmhy.org${item.link}`}>檔案來源</a>
+          </Space>
+        }
+      />
+      <div>{item.progress!=null && <Progress percent={item.progress} />}</div>
+    </Card>
+  </List.Item>
 )
 
 export default function DownloadList() {
   const task = TaskContext.useContainer()
 
-  return task.downloadList.map(cardItem)
+  return (
+    <List
+      itemLayout="horizontal"
+      dataSource={task.downloadList}
+      renderItem={cardItem}
+    />
+  )
 }
