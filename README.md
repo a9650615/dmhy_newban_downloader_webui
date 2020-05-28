@@ -3,6 +3,7 @@
 dmhy 自動下載工具的網頁端管理介面
 
 執行前請先複製 `.env` 檔案並且配置對應版本，開發請定為 `.env.development`，發行版為 `.env.production`，其他問題可以參考[連結](https://nextjs.org/docs/basic-features/environment-variables)
+並且要設定裡面 `NEXT_PUBLIC_API_URL` 內的值，例如網站是 `http://localhost:8888` 就設定成 `NEXT_PUBLIC_API_URL=http://localhost:8888`
 
 如要開發使用以下方式安裝並且執行:
 
