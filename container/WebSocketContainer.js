@@ -12,6 +12,8 @@ export default function WebSocketContainer(prop) {
     const { type, data } = socket.data
     if (type == 'UPDATE_DOWNLOAD_STATUS') {
       task.updateDownloadItemByValue(data.link, data)
+    } else if (type == 'START_DOWNLOAD') {
+      task.addDownloadItem(data)
     }
   }, [socket.data])
 

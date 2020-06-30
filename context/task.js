@@ -33,10 +33,20 @@ function useTask() {
 		})
 	}
 
+	const addDownloadItem = (item) => {
+		const newArr = task.downloadList.slice(0)
+		newArr.push(item)
+
+		setTask({
+			downloadList: newArr,
+		})
+	}
+
 	return {
 		downloadList: task.downloadList,
 		getdownloadList,
 		updateDownloadItemByValue,
+		addDownloadItem,
 	}
 }
 

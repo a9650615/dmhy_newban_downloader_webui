@@ -13,6 +13,13 @@ function useSocket() {
         data
       })
     })
+
+    WebSocket.on('START_DOWNLOAD', function(data) {
+      setData({
+        type: 'START_DOWNLOAD',
+        data
+      })
+    })
   }, [])
 
   return {
