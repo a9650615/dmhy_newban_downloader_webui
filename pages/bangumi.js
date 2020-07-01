@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { Layout, Typography, Divider } from 'antd'
 import Header from '../components/header'
-import DownloadList from '../components/downloadList'
-import TaskContext from '../context/task'
+import BangumiContext from '../context/bangumi'
+import BangumiList from '../components/bangumiList'
 
 export default function Home() {
-  const task = TaskContext.useContainer()
+  const bangumi = BangumiContext.useContainer()
   
   useEffect(() => {
     // setInterval(() => {
     //   task.getdownloadList()
     // }, 5000)
-    task.getdownloadList()
+    bangumi.getBangumiList()
   }, []);
 
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <Layout style={{ minHeight: '100vh' }}>
         <Header />
         <Layout.Content style={{ padding: '24px', minHeight: 280, maxWidth: 1000, margin: 'auto' }}>
-          <DownloadList />
+          <BangumiList />
         </Layout.Content>
       </Layout>
     </div>

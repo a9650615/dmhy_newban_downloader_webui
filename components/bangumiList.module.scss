@@ -1,0 +1,18 @@
+$contentSize: 10px;
+
+.bangumiCard {
+  margin-bottom: 20px;
+}
+
+.bangumiImage {
+  max-width: 100%;
+  min-height: 250px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: $contentSize;
+}
+
+.bangumiMeta {
+  padding: $contentSize;
+}
