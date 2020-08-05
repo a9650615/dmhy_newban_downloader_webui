@@ -1,13 +1,15 @@
 import { List, Card, Row, Col } from 'antd'
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons'
+import { EditOutlined, EllipsisOutlined } from '@ant-design/icons'
 import BangumiContext from '../context/bangumi'
 import styles from './bangumiList.module.scss'
+import DeleteCardButton from './bangumiList/deleteCardButton'
 
-const cardItem = (item) => (
+const cardItem = ( item, removeBangumi ) => (
   <Card
     className={styles.bangumiCard}
     actions={[
       <EditOutlined key="edit" />,
+      <DeleteCardButton removeBangumi={removeBangumi.bind(this, item.nameInJpn)} />,
       <EllipsisOutlined key="ellipsis" />,
     ]}
   >
@@ -37,13 +39,13 @@ const cardItem = (item) => (
 )
 
 export default () => {
-  const { list } = BangumiContext.useContainer()
+  const { list, removeBangumiFromTrackList } = BangumiContext.useContainer()
 
   return (
     <List
       itemLayout="vertical"
       dataSource={list}
-      renderItem={cardItem}
+      renderItem={item => cardItem.call(this, item, removeBangumiFromTrackList)}
     />
   )
 }
