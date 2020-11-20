@@ -19,7 +19,7 @@ const cardItem = (item) => (
         title={item.name}
         description={
           <Space>
-            <span>{showStatus(item.status)}</span>
+            <span>{showStatus(item.status)}{item.downloadSpeed && `(${item.downloadSpeed})`}</span>
             <a target="_blank" href={item.magnet}>磁力連結</a>
             <a target="_blank" href={`https://share.dmhy.org${item.link}`}>檔案來源</a>
           </Space>
